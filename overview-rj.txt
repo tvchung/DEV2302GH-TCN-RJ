@@ -1,0 +1,22 @@
+-------FrontEnd: 
+	---(HTML5, CSS3, JS, JQUERY, BOOTSTRAP, CẮT/GHÉP)
+--REACTJS:
+	++ nodejs / git-bash
+1. ES6
+2. Reactjs - Cơ bản (3-4b)
+	- Slides:
+	- mini-project-1: CRUD  (Student manager)
+3. Reactjs - Redux (3b)
+	- Slides:
+	- mini-project-2: CRUD  (shopping cart) 
+4. Reactjs - Hook (3b)
+	- Slides 
+	- mini-project-3: CRUD (Quản lý công việc: ListTask)
+5. API: (2b)
+	- mock-api-local / mockapi.io
+	- mock-api-client: CRUD 
+---------Finished: (2 tuần) hoàn thiện project 
+		
+
+
+	
