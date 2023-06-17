@@ -1,0 +1,12 @@
+- JSX Expression: {}
+- html to JSX: transform.tool
+- Component:
+    + Function component 
+    + Class component
+
+- Hoạt động cơ bản:
+    props => Component => React Element 
+
+- ===============================
+- props 
+- states

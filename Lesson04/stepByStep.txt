@@ -1,0 +1,22 @@
+------------ Mock Project 1 - Student Management System
+1. Tạo ứng dụng ReactJs: mini-project-1
+2. Sử dụng thiết kế (html - ReactJs Basic)
+    - Chuyển basic_react.html => jsx (transform.tool)
+    - Copy code JSX -> App.js 
+    - Copy folder (css) -> vào folder public
+    - index.html -> tạo liên kết đến css (copy link từ basic_react.html -> index.html)
+3. Phân tích thành phần giao diện
+    - Phân chia các component (view)
+    - App
+        - Control
+        - ListStudent
+            - Student 
+        - Form
+4. Thực hiện tách các thành phần giao diện từ App 
+
+5. Thực hiện chức năng -> Hiển thị dữ liệu trên ListStudent
+App: 
+    - Tạo mock data trong state 
+    - render -> ListStudent -> Student 
+    - Hiển thị dữ liệu trên Student 
+
