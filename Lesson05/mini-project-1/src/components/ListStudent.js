@@ -2,12 +2,27 @@ import React, { Component } from "react";
 import Student from "./Student";
 
 class ListStudent extends Component {
+
+
+  // hàm xử lý cho sự kiện xem
+  handleView=(toggle, actionName,student)=>{
+    this.props.onView(toggle,actionName,student);
+  }
+  // hàm xử lý sự kiện sửa
+  handleEdit=(toggle,actionName,student)=>{
+    this.props.onEdit(true,actionName,student)
+  }
   render() {
     let {renderStudents} = this.props;
     console.log(renderStudents);
     // render dữ liệu vào các Student
     let elementStudent = renderStudents.map((student,index)=>{
-        return <Student key={index} renderStudent={student}  stt={index+1} />
+        return <Student 
+                key={index} 
+                renderStudent={student}  
+                stt={index+1} 
+                onView={this.handleView}
+                onEdit={this.handleEdit}/>
     })
     return (
       <>

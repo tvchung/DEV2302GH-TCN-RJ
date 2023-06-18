@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
 class Control extends Component {
+
+  // khi click chọn thêm mới
+  handleAdd = (event)=>{
+    this.props.onAdd(true,"Add"); // Cập nhật lại isToggle trên App là true
+  }
+
     render() {
         return (
            <>
@@ -10,6 +16,7 @@ class Control extends Component {
                     <button
                       type="button"
                       className="btn btn-primary btn-icon-text"
+                      onClick={this.handleAdd}
                     >
                       Thêm mới sinh viên
                     </button>

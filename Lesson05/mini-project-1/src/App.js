@@ -15,30 +15,57 @@ class App extends Component {
         { studentId: "SV003", studentName: "Nguyễn Văn C", age: 19, sex: true, birthDate: "2003-07-07", birthPlace: "HCM", address: "1, Lý Tự Trọng" },
         { studentId: "SV004", studentName: "Nguyễn Văn C", age: 19, sex: true, birthDate: "2003-07-07", birthPlace: "HCM", address: "1, Lý Tự Trọng" }
       ], // Mảng danh sách sinh viên
-
+      isToggle:false, // quản lý trạng thái ẩn/hiện Form 
+      actionName:"", // thuộc tính xử lý hiển thị nút submit trên form
+      student:{}, // quản lý đối tương dữ liệu cho Form
     }
   }
 
+  // Xử lý sự kiện
+  handleAddOrUpdate = (toggle, actionName,student)=>{
+    this.setState({
+      isToggle:toggle,
+      actionName:actionName,
+      student:student
+    })
+  }
 
 
+  // Hàm xử lý sự kiện Submit Form
+  handleSubmit = (toggle,actionName)=>{
+    console.log("Form - app:",toggle,actionName);
+    this.setState({
+      isToggle:toggle,
+      actionName:actionName
+    })
+
+  }
   render() {
     let {students} = this.state;
+    // ẩn hiện form theo isToggle 
+    let elementForm = (this.state.isToggle===true)? 
+              <Form renderActionName={this.state.actionName} 
+                    renderStudent={this.state.student}
+              onSubmit={this.handleSubmit}/>:""
     return (
       <div className="container-fluid">
         <div className="row">
           <div className="col-lg-7 grid-margin stretch-card">
             <div className="card">
               {/* Control  */}
-              <Control />
+              <Control  onAdd={this.handleAddOrUpdate}/>
               {/* ./Control  */}
               {/* ListStudent  */}
-              <ListStudent renderStudents = {students} />
+              <ListStudent renderStudents = {students} 
+                    onView={this.handleAddOrUpdate}
+                    onEdit={this.handleAddOrUpdate}/>
               {/* ./ListStudent  */}
             </div>
           </div>
           <div className="col-5 grid-margin">
             {/* Form */}
-                <Form />
+                {/* <Form /> */}
+                {elementForm}
             {/* ./Form */}
           </div>
         </div>
