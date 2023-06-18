@@ -18,7 +18,7 @@ class App extends Component {
     return (
       <div className="App">
         <img src="https://devmaster.edu.vn/images/logo.png" alt="Devmaster" />
-        <ListStudent renderStudents = {list}/>
+        <ListStudent renderStudents = {list} onEdit={""} />
       </div>
     );
   }
