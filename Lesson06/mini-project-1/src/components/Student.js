@@ -9,6 +9,10 @@ class Student extends Component {
   handleEdit = (student)=>{
     this.props.onEdit(true,"Update",student)
   }
+  // hàm xử lý khi xóa
+  handleDelete = (student)=>{
+    this.props.onDelete(student);
+  }
   render() {
     // lấy dữ liệu từ props => hiển thị trên các element
     let {renderStudent,stt} = this.props;
@@ -21,7 +25,7 @@ class Student extends Component {
           <td>{renderStudent.studentName}</td>
           <td>{renderStudent.age}</td>
           <td>
-            {renderStudent.sex?"Nam":"Nữ"}
+            {(renderStudent.sex===true || renderStudent.sex==='true')?"Nam":"Nữ"}
           </td>
           <td>
             <div className="template-demo">
@@ -33,7 +37,8 @@ class Student extends Component {
                 onClick={()=>this.handleEdit(renderStudent)}>
                 Sửa
               </button>
-              <button type="button" className="btn btn-success btn-icon-text">
+              <button type="button" className="btn btn-success btn-icon-text" 
+              onClick={()=>this.handleDelete(renderStudent)}>
                 Xóa
               </button>
             </div>

@@ -12,6 +12,10 @@ class ListStudent extends Component {
   handleEdit=(toggle,actionName,student)=>{
     this.props.onEdit(true,actionName,student)
   }
+  //xóa
+  handleDelete = (student)=>{
+    this.props.onDelete(student);
+  }
   render() {
     let {renderStudents} = this.props;
     console.log(renderStudents);
@@ -22,7 +26,8 @@ class ListStudent extends Component {
                 renderStudent={student}  
                 stt={index+1} 
                 onView={this.handleView}
-                onEdit={this.handleEdit}/>
+                onEdit={this.handleEdit}
+                onDelete={this.handleDelete}/>
     })
     return (
       <>

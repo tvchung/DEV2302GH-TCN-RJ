@@ -23,6 +23,7 @@ class App extends Component {
 
   // Xử lý sự kiện
   handleAddOrUpdate = (toggle, actionName,student)=>{
+    console.log("handleAddOrUpdate:",student);
     this.setState({
       isToggle:toggle,
       actionName:actionName,
@@ -32,13 +33,43 @@ class App extends Component {
 
 
   // Hàm xử lý sự kiện Submit Form
-  handleSubmit = (toggle,actionName)=>{
-    console.log("Form - app:",toggle,actionName);
+  handleSubmit = (toggle,actionName,student)=>{
+    console.log("Form - app:",toggle,actionName, student);
+    // Xử lý khi sửa
+    if(actionName==="Update"){
+      let {students}=this.state; // lấy giá trị mảng hiện tại
+      for (let index = 0; index < students.length; index++) {
+        if(students[index].studentId === student.studentId){
+          students[index]=student;
+          break;
+        }
+      }
+      this.setState({
+        students:students
+      })
+    }
+
+    //Xử lý khi thêm
+    if(actionName==="Add"){
+      let {students}=this.state; // lấy giá trị mảng hiện tại
+      students.push(student); 
+      // students=[...students,student];
+      this.setState({
+        students:students
+      })
+    }
     this.setState({
       isToggle:toggle,
       actionName:actionName
     })
-
+  }
+  // xóa
+  handleDelete= (student)=>{
+    let {students}=this.state; // lấy giá trị mảng hiện tại
+    let list = students.filter(x=>x.studentId !=student.studentId);
+    this.setState({
+      students:list
+    })
   }
   render() {
     let {students} = this.state;
@@ -58,7 +89,8 @@ class App extends Component {
               {/* ListStudent  */}
               <ListStudent renderStudents = {students} 
                     onView={this.handleAddOrUpdate}
-                    onEdit={this.handleAddOrUpdate}/>
+                    onEdit={this.handleAddOrUpdate}
+                    onDelete={this.handleDelete}/>
               {/* ./ListStudent  */}
             </div>
           </div>
