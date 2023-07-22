@@ -6,7 +6,7 @@ class Form extends Component {
         this.state = { 
             studentId: "", 
             studentName: "", 
-            age: 0 
+            age: 0 ,
         }
     }
     componentWillMount = ()=>{
